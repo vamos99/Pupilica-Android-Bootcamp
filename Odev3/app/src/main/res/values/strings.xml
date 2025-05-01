@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Odev3</string>
+
+    <!-- Önceki Adımlardan Hava Durumu Metinleri -->
+    <string name="location_name">Istanbul</string>
+    <string name="temperature_degrees">%d°C</string>
+    <string name="weather_description">Partly Cloudy</string>
+    <string name="feels_like">Feels like: %d°C</string>
+    <string name="wind">Wind: %s km/h</string>
+    <string name="humidity">Humidity: %d%%</string>
+    <string name="last_updated">Last updated: %s</string>
+
+    <!-- Basit Layout İçin Eklenen Metinler -->
+    <string name="simple_title">Hava Durumu</string>
+    <string name="simple_description">Basit Arayüz</string>
+    <string name="weather_icon_description">Hava durumu ikonu</string>
+
+</resources>

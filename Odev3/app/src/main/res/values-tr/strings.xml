@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="location_name">İstanbul</string>
+    <string name="weather_description">Parçalı Bulutlu</string>
+    <string name="feels_like">Hissedilen: %d°C</string>
+    <string name="wind">Rüzgar: %s km/s</string>
+    <string name="humidity">Nem: %%%d</string>
+    <string name="last_updated">Son Güncelleme: %s</string>
+
+    <string name="simple_title">Hava Durumu</string>
+    <string name="simple_description">Basit Arayüz</string>
+    <string name="weather_icon_description">Hava durumu ikonu</string>
+
+</resources>

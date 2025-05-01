@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacing_small">4dp</dimen>
+    <dimen name="spacing_medium">8dp</dimen>
+    <dimen name="spacing_large">16dp</dimen>
+    <dimen name="spacing_xlarge">20dp</dimen>
+    <dimen name="spacing_xxlarge">32dp</dimen>
+
+    <dimen name="text_size_location">34sp</dimen>
+    <dimen name="text_size_temperature">60sp</dimen>
+    <dimen name="text_size_description">18sp</dimen>
+    <dimen name="text_size_details">16sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+
+    <dimen name="weather_icon_size">120dp</dimen>
+    <dimen name="detail_icon_size">24dp</dimen>
+
+    <dimen name="text_size_title_simple">24sp</dimen>
+    <dimen name="text_size_description_simple">18sp</dimen>
+    <dimen name="icon_size_simple">100dp</dimen>
+
+</resources>
