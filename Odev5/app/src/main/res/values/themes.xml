@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Odev5" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#1C1C1C</item>
+        <item name="colorPrimaryVariant">#1C1C1C</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#FF9500</item>
+        <item name="colorSecondaryVariant">#FF9500</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">#1C1C1C</item>
+        <item name="android:windowBackground">#1C1C1C</item>
+    </style>
+</resources>
