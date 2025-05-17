@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="120dp"
+    android:layout_height="160dp"
+    android:layout_marginEnd="12dp"
+    android:backgroundTint="#181818"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="3dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/recentImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:contentDescription="Son çalınan kapağı"
+                android:src="@drawable/img1" />
+
+            <ImageView
+                android:id="@+id/spotifyLogo"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="top|start"
+                android:layout_margin="6dp"
+                android:src="@drawable/img1"
+                android:background="@drawable/circle_grey"
+                android:padding="2dp"
+                android:contentDescription="Spotify logosu" />
+
+            <TextView
+                android:id="@+id/recentName"
+                android:layout_width="100dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom|start"
+                android:background="@drawable/green_rounded_background"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:elevation="4dp"
+                tools:text="Yeni Müzik Radarı" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/recentArtists"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#B3FFFFFF"
+            android:textSize="11sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Sanatçılar" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView> 
