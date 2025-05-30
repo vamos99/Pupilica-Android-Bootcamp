@@ -1,0 +1,205 @@
+
+Proje Adı: GetFood - Yemek Sipariş Uygulaması
+
+1. Projeye Genel Bakış:
+GetFood, kullanıcıların yemekleri listeleyebileceği, detaylarını inceleyebileceği, sepete ekleyebileceği ve sipariş verebileceği bir Android mobil uygulamasıdır. Uygulama, Kotlin programlama dili ve arayüzler için XML kullanılarak, MVVM (Model-View-ViewModel) mimari deseniyle geliştirilecektir. Jetpack'in temel bileşenleri olan ViewModel, LiveData ve Navigation Component kullanılmayacaktır. Temel amaç, işlevsel, sade ve modern bir kullanıcı deneyimi sunmaktır.
+
+2. Genel Tasarım ve Kullanıcı Arayüzü (UI) Yönergeleri:
+
+İlham Kaynağı: "Getir" uygulamasının modern, temiz, canlı ve kullanıcı dostu arayüz estetiği referans alınacaktır. Bu, cömert boşluklar, okunaklı tipografi, yumuşak gölgeler ve net eylem çağrıları anlamına gelir.
+
+Renk Paleti:
+
+Birincil Eylem Rengi (Primary): Canlı bir Turuncu/Amber tonu (Örn: #FFA726). Butonlar, aktif ikonlar, önemli fiyat bilgileri ve vurgular için kullanılacaktır.
+
+İkincil/Vurgu Rengi (Accent): Kontrast oluşturan, tamamlayıcı bir Mavi/İndigo tonu (Örn: #5C6BC0). İsteğe bağlı, nadir vurgular için.
+
+Nötr Renkler:
+
+Arka Planlar: Çok açık gri (#F5F5F5 veya #F8F9FA) veya Beyaz (#FFFFFF).
+
+Ana Metinler: Koyu Gri/Siyah (#212121 veya #343A40).
+
+İkincil Metinler/Pasif İkonlar: Orta Gri (#757575 veya #BDBDBD).
+
+Hata/Silme/Çıkış Yap Metni: Kırmızı tonu (Örn: #D32F2F).
+
+Tipografi: Okunabilirliği yüksek, modern sans-serif yazı tipleri (Örn: Roboto, Noto Sans). Başlıklar için medium/semibold, gövde metinleri için regular ağırlıklar.
+
+İkonlar: Material Design İkonları (SVG veya Vector Drawable olarak projeye dahil edilecek). Boyutlar tutarlı (örn: 24dp).
+
+Genel Yerleşim: Temiz, dengeli ve sezgisel. Öğeler arasında yeterli padding ve margin.
+
+UI Elemanlarına Özel Stil Detayları:
+
+Butonlar (Buttons):
+
+Birincil Eylem Butonları (Giriş Yap, Sepete Ekle, Ödeme Yap vb.): Tamamen yuvarlatılmış köşeler (örn: 28dp), arka plan Birincil Eylem Rengi, metin Beyaz, textAllCaps="false", yükseklik 56dp, hafif gölge (4dp).
+
+İkincil/Kenarlıklı Butonlar (Misafir Olarak Devam Et, Kayıtlı Adreslerimden Seç vb.): Aynı köşe yuvarlaklığı, şeffaf arka plan, 1dp Birincil Eylem Rengi kenarlık, metin Birincil Eylem Rengi.
+
+Metin Butonları (Profildeki seçenekler): Arka plansız, kenarlıksız. Metin Koyu Gri veya Birincil Eylem Rengi. "Çıkış Yap" için Kırmızı metin. Metnin solunda ilgili ikon olabilir.
+
+İkon Butonları (ImageButton) (Adet +/-, Favori, Silme): Genellikle dairesel veya arka plansız. İkon rengi Birincil Eylem Rengi veya Koyu Gri. Silme için Kırmızı. Dokunma alanı min. 48dp x 48dp (padding ile).
+
+FloatingActionButton (FAB) (Adres Ekleme "+"): Dairesel, arka plan Birincil Eylem Rengi, ikon Beyaz, belirgin gölge (6dp).
+
+Navigasyon Çubukları:
+
+AppBar (Üst Çubuk): Arka plan Beyaz, başlık Koyu Gri (sola hizalı/ortalı, medium/semibold), ikonlar Koyu Gri. Hafif gölge (4dp) veya ince alt çizgi ile ayrım.
+
+Bottom Navigation Bar (Alt Gezinme Çubuğu): Arka plan Beyaz. Aktif sekme (ikon+metin) Birincil Eylem Rengi, pasifler Orta Gri. labelVisibilityMode="labeled". Üst kenarda ince çizgi veya hafif gölge.
+
+Giriş Alanları (EditTexts): TextInputLayout ile OutlinedBox stili. Köşeler hafif yuvarlak (8dp). Placeholder Açık Gri. Odaklanınca çerçeve Birincil Eylem Rengi. Başında/sonunda Orta Gri ikonlar olabilir.
+
+Kartlar (CardView): Arka plan Beyaz, köşeler orta yuvarlaklıkta (12dp-16dp), hafif gölge (4dp). İçerisinde yeterli padding.
+
+Dialoglar (AlertDialog): Köşeler belirgin yuvarlak (16dp-24dp). Eylem butonları metin butonu stilinde (sağa hizalı), pozitif eylem Birincil Eylem Rengi, negatif Koyu Gri.
+
+Badge (Sepet İkonu Üzerindeki Sayı): Küçük daire, arka plan Kırmızı veya Birincil Eylem Rengi, metin Beyaz, ikonun sağ üstüne bindirilmiş.
+
+3. Mimari Desen ve Kütüphaneler:
+
+Mimari Desen: MVVM (Model-View-ViewModel)
+
+Model: Retrofit (API), Gson (JSON), Kotlin Coroutines (asenkron), SharedPreferences (lokal depolama - JSON string listeler).
+
+View: Activity'ler ve XML layout'ları.
+
+ViewModel: Jetpack ViewModel sınıfından türemeyen özel Kotlin sınıfları. View'e veri değişikliklerini bildirmek için Callback Arayüzleri. Konfigürasyon değişikliklerinde durum koruması manuel/basit (gerekirse veri yeniden yüklenir).
+
+Kütüphaneler: Retrofit & Gson, Glide (veya Picasso, Coil - resim yükleme), Kotlin Coroutines (Core).
+
+Navigasyon: Standart Intent'ler.
+
+4. API Entegrasyonu (Kasım Adalan API):
+
+Base URL: http://kasimadalan.pe.hu/yemekler/
+
+kullanici_adi Parametresi: Tüm ilgili POST isteklerinde "halil_kiyak" olarak gönderilecektir.
+
+Endpoints:
+
+Tüm Yemekleri Getir: GET tumYemekleriGetir.php (Dönüş: yemek_id, yemek_adi, yemek_resim_adi, yemek_fiyat - hepsi String).
+
+Sepete Yemek Ekle: POST sepeteYemekEkle.php (Parametreler: yemek_adi, yemek_resim_adi, yemek_fiyat (String/Int), yemek_siparis_adet (Int), kullanici_adi). API'nin aynı ürün için adedi güncellediği varsayılır.
+
+Sepetteki Yemekleri Getir: POST sepettekiYemekleriGetir.php (Parametre: kullanici_adi). (Dönüş: sepet_yemek_id vb. - hepsi String).
+
+Sepetten Yemek Sil: POST sepettenYemekSil.php (Parametreler: sepet_yemek_id (String/Int), kullanici_adi).
+
+Yemek Resimleri: GET resimler/{yemek_resim_adi.png} (Glide ile yüklenecek).
+
+5. Sayfa Detayları ve İşlevsellikler:
+
+Sayfa 1: Kullanıcı Girişi (Login Activity)
+
+UI: "GetFood" başlığı (büyük, ortada). Kullanıcı Adı EditText (kişi ikonu). Şifre EditText (kilit ikonu, şifre görünürlük toggle). "Giriş Yap" birincil eylem butonu. "Misafir Olarak Devam Et" ikincil/kenarlıklı buton. AppBar/BottomNav yok.
+
+İşlev: "Giriş Yap" ile isGuest=false, "Misafir" ile isGuest=true SharedPreferences'a kaydedilir. Ana Sayfa'ya yönlendirir.
+
+Sayfa 2: Ana Sayfa (Yemek Listesi - Home Activity)
+
+AppBar: "GetFood" başlığı.
+
+Arama Çubuğu: AppBar altında sabit SearchView (köşeleri hafif yuvarlak, içinde büyüteç ikonu ve "Yemek veya malzeme ara..." placeholder). Liste yemek_adi'na göre filtrelenir.
+
+Liste: RecyclerView (GridLayoutManager - 2 sütun). Her öğe (CardView - köşeler 12dp yuvarlak, gölge 4dp): Yemek Resmi (ImageView), Yemek Adı (TextView - 16sp, Koyu Gri, semibold), Yemek Fiyatı (TextView - 14sp, Birincil Eylem Rengi, bold), Favori Yıldızı (ImageButton - sağ üst köşe, boş/dolu kalp ikonu, 24dp, dokunma alanı 48dp).
+
+Favori Yıldızı: isGuest=false ise SharedPreferences'a yemek_id kaydeder/siler. isGuest=true ise pasif veya "Giriş yap" Toast'u.
+
+Diğer: ProgressBar (yüklenirken, dairesel, ortada), boş liste/hata mesajı (TextView).
+
+Bottom Navigation Bar: "Ana Sayfa" (aktif, ev ikonu), "Sepetim" (sepet ikonu, üzerinde ürün sayısı badge'i - kırmızı/birincil renk), "Profilim" (kişi ikonu).
+
+İşlev: tumYemekleriGetir.php'den veri çeker. Yemek kartına tıklayınca Yemek Detay Sayfası'na gider.
+
+Sayfa 3: Yemek Detay Sayfası (Detail Activity)
+
+AppBar: Geri ok ikonu (Ana Sayfa'ya döner), "Ürün Detayı" başlığı.
+
+UI: Büyük Yemek Resmi (ImageView, sayfanın üst kısmını kaplayan). Altında Yemek Adı (TextView - büyük, belirgin), Birim Fiyat (TextView). Yatay LinearLayout içinde Adet Seçici ([-] ImageButton - dairesel, Birincil Eylem Rengi ikon, [Adet] TextView - ortada, [+] ImageButton - dairesel, Birincil Eylem Rengi ikon). Toplam Fiyat (TextView - Birincil Eylem Rengi, belirgin). "Sepete Ekle" birincil eylem butonu (üzerinde toplam tutar da yazabilir).
+
+İşlev: Adet min. 1. "Sepete Ekle" ile sepeteYemekEkle.php'ye istek atar. Başarılıysa "Ürün sepete eklendi" Toast'u, sepet badge'i güncellenir.
+
+Sayfa 4: Sepet Sayfası (Cart Activity)
+
+AppBar: Geri ok ikonu, "Sepetim" başlığı.
+
+Liste: RecyclerView. Her öğe (CardView veya sadece divider ile ayrılmış): Yemek Resmi, Adı, Birim Fiyatı, Adet Seçici (+/-), Ürün Toplam Fiyatı, Sil (ImageButton - çöp kutusu ikonu, Kırmızı ikon).
+
+Diğer: Boş sepet mesajı. Sayfa altında "Toplam:" TextView'i ve Genel Toplam Değeri (TextView - kalın, Birincil Eylem Rengi). "Sepeti Onayla" birincil eylem butonu.
+
+İşlev: sepettekiYemekleriGetir.php'den veri çeker.
+
+Adet +/-: Adet değişince sepeteYemekEkle.php ile günceller. Adet 1 iken "-" basılırsa sepettenYemekSil.php ile ürünü siler.
+
+Sil Butonu: sepettenYemekSil.php ile ürünü siler.
+
+Tüm işlemler toplam tutarı ve sepet badge'ini günceller.
+
+"Sepeti Onayla" ile Ödeme Sayfası'na gider (toplam tutarı aktarır).
+
+Sayfa 5: Profil Sayfası (Profile Activity)
+
+AppBar: Geri ok ikonu, "Profilim" başlığı.
+
+UI: Ortada büyükçe bir profil ikonu (kişi, dairesel arka planlı). Altında "halil_kiyak" (TextView - belirgin). Altında LinearLayout (dikey) içinde metin butonları (her birinin solunda ikon): "Adreslerim" (ev/konum ikonu), "Favorilerim" (kalp/yıldız ikonu). En altta ayrı bir "Çıkış Yap" metin butonu (çıkış kapısı ikonu, Kırmızı metin).
+
+İşlev: Adreslerim/Favorilerim: isGuest=true ise pasif/gizli veya uyarı. Değilse ilgili sayfalara yönlendirir. Çıkış Yap: SharedPreferences'ı temizler, Kullanıcı Girişi Sayfası'na yönlendirir (Activity yığınını temizleyerek).
+
+Sayfa 6: Adreslerim Sayfası (Address Activity)
+
+Veri: Adresler (ID, başlık, tam adres-düz metin, telefon-sadece sayısal) SharedPreferences'ta JSON listesi.
+
+AppBar: Geri ok ikonu (Profil'e döner), "Adreslerim" başlığı.
+
+Liste: RecyclerView. Her öğe (CardView): Adres Başlığı, Tam Adres, Telefon Numarası, Sil (ImageButton - çöp kutusu, sağda).
+
+Diğer: Boş liste mesajı. Sağ altta "+" FloatingActionButton.
+
+İşlev: Adresleri listeler. FAB ile adres ekleme dialog/sayfası açılır (Başlık EditText, Adres EditText-multiline, Telefon EditText-phone). Kaydedilen adres SharedPreferences'a eklenir. Sil butonu adresi SharedPreferences'tan siler. Ödeme sayfasından "seçim modu"nda gelinirse, seçilen adres bilgisini Ödeme Sayfası'na döndürür.
+
+Sayfa 7: Favorilerim Sayfası (Favorites Activity)
+
+Veri: Favori yemek_id'leri SharedPreferences'ta Set<String>.
+
+AppBar: Geri ok ikonu (Profil'e döner), "Favorilerim" başlığı.
+
+Liste: RecyclerView. Her öğe (Ana Sayfa'daki gibi CardView): Yemek Resmi, Adı, Fiyatı, Favoriden Çıkar (ImageButton - dolu kalp ikonu, sağ üstte).
+
+Diğer: Boş liste mesajı. (FAB Yok).
+
+İşlev: Favori ID'leri üzerinden yemek bilgilerini (API'den veya önbellekten) alıp listeler. Öğeye tıklayınca Yemek Detay'a gider. "Favoriden Çıkar" ile SharedPreferences'tan siler ve Ana Sayfa'daki yıldızı da (eğer mümkünse anlık, değilse sayfa yenilenince) günceller.
+
+Sayfa 8: Ödeme Sayfası (Payment Activity)
+
+AppBar: Geri ok ikonu (Sepet'e döner), "Sipariş Onayı" başlığı.
+
+UI: ScrollView içinde:
+
+"Teslimat Adresi" başlığı.
+
+"Kayıtlı Adreslerimden Seç" ikincil/kenarlıklı buton (isGuest=true ise pasif/gizli).
+
+Adres (EditText-multiline), Telefon (EditText-phone).
+
+Sayfa altında "Ödenecek Tutar:" TextView'i ve Genel Toplam Değeri (TextView - kalın, Birincil Eylem Rengi).
+
+"Ödeme Yap" birincil eylem butonu (sayfa altına sabitlenebilir).
+
+İşlev:
+
+Adres/Telefon alanları boş değilse:
+
+Sepeti Sıfırla (API): sepettekiYemekleriGetir.php ile tüm sepet ürünlerini al, her birinin sepet_yemek_id'si ile sepettenYemekSil.php'yi çağır.
+
+"Siparişiniz tamamlanmıştır!" AlertDialog (başarılı ikonu ile).
+
+Sepet badge'ini sıfırla. Ana Sayfa'ya yönlendir (Activity yığınını temizle).
+
+6. Hata Yönetimi ve İzinler:
+
+Hata Yönetimi: API hataları (bağlantı, sunucu), validasyon hataları ve boş durumlar için kullanıcı dostu Toast mesajları veya Snackbar'lar. Yükleniyor durumları için ProgressBar'lar.
+
+İzinler: AndroidManifest.xml içinde INTERNET izni.

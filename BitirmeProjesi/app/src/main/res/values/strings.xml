@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">GetFood</string>
+    
+    <!-- Login Screen -->
+    <string name="login_title">GetFood</string>
+    <string name="username_hint">Kullanıcı Adı</string>
+    <string name="password_hint">Şifre</string>
+    <string name="login_button">Giriş Yap</string>
+    <string name="guest_button">Misafir Olarak Devam Et</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Ana Sayfa</string>
+    <string name="nav_cart">Sepetim</string>
+    <string name="nav_profile">Profilim</string>
+    
+    <!-- Home Screen -->
+    <string name="search_hint">Yemek veya malzeme ara...</string>
+    
+    <!-- Food Detail -->
+    <string name="product_detail">Ürün Detayı</string>
+    <string name="add_to_cart">Sepete Ekle</string>
+    <string name="total_price">Toplam:</string>
+    
+    <!-- Cart Screen -->
+    <string name="my_cart">Sepetim</string>
+    <string name="confirm_cart">Sepeti Onayla</string>
+    <string name="empty_cart">Sepetiniz boş</string>
+    
+    <!-- Profile Screen -->
+    <string name="my_profile">Profilim</string>
+    <string name="my_addresses">Adreslerim</string>
+    <string name="my_favorites">Favorilerim</string>
+    <string name="logout">Çıkış Yap</string>
+    
+    <!-- Address Screen -->
+    <string name="my_addresses_title">Adreslerim</string>
+    <string name="add_address">Adres Ekle</string>
+    <string name="address_title">Adres Başlığı</string>
+    <string name="address_detail">Adres Detayı</string>
+    <string name="phone_number">Telefon Numarası</string>
+    
+    <!-- Favorites Screen -->
+    <string name="my_favorites_title">Favorilerim</string>
+    <string name="empty_favorites">Favori ürününüz bulunmuyor</string>
+    
+    <!-- Payment Screen -->
+    <string name="order_confirmation">Sipariş Onayı</string>
+    <string name="delivery_address">Teslimat Adresi</string>
+    <string name="select_saved_address">Kayıtlı Adreslerimden Seç</string>
+    <string name="pay_now">Ödeme Yap</string>
+    <string name="order_completed">Siparişiniz tamamlanmıştır!</string>
+    
+    <!-- Common -->
+    <string name="back">Geri</string>
+    <string name="save">Kaydet</string>
+    <string name="cancel">İptal</string>
+    <string name="delete">Sil</string>
+    <string name="loading">Yükleniyor...</string>
+    <string name="error_network">Bağlantı hatası</string>
+    <string name="product_added_to_cart">Ürün sepete eklendi</string>
+</resources>

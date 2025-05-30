@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- GetFood App Color Palette -->
+    <!-- <color name="primary_orange">#FFA726</color> -->
+    <!-- <color name="accent_blue">#5C6BC0</color> -->
+    
+    <!-- Neutral Colors -->
+    <color name="background_color">#F8F9FA</color>
+    <color name="background_light_gray">#F3F4F6</color>
+    <color name="background_white">#FFFFFF</color>
+    <color name="text_dark">#212121</color>
+    <color name="text_primary">#1E1B4B</color>
+    <color name="text_secondary">#6D28D9</color>
+    <color name="text_light">#BDBDBD</color>
+    <color name="neutral_light">#E0E0E0</color>
+    <color name="error_red">#EF4444</color>
+    <color name="error_color">#EF4444</color>
+    
+    <!-- Legacy colors for compatibility -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- New colors for the modern palette -->
+    <color name="primary_mor">#7C3AED</color>
+    <color name="primary_mor_dark">#4C1D95</color>
+    <color name="primary_mor_light">#EDE9FE</color>
+    <color name="accent_yellow">#FBBF24</color>
+</resources>
