@@ -51,9 +51,17 @@ Modern Yemek Sipariş Uygulaması
 
 ## Kurulum
 
-1. Bu repoyu klonla:
+1. Projeyi indirin:
    ```bash
-   git clone https://github.com/vamos99/Bitirme-Projesi.git
+   # Yöntem 1 - Tüm repo'yu klonlamak için:
+   git clone https://github.com/vamos99/Pupilica-Android-Bootcamp.git
+   cd Pupilica-Android-Bootcamp/BitirmeProjesi
+
+   # Yöntem 2 - Sadece BitirmeProjesi klasörünü indirmek için:
+   # 1. https://github.com/vamos99/Pupilica-Android-Bootcamp/tree/main/BitirmeProjesi adresine gidin
+   # 2. "Code" butonuna tıklayın
+   # 3. "Download ZIP" seçeneğini seçin
+   # 4. İndirilen ZIP dosyasını açın
    ```
 2. Android Studio ile aç.
 3. Gerekirse `local.properties` dosyasını oluştur (otomatik oluşur).
